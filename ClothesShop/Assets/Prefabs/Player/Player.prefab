@@ -347,21 +347,21 @@ MonoBehaviour:
     orientation: 3
   playerFeetNo:
   - ID: 0
-    clothingSprite: {fileID: 21300000, guid: 9741b8037dfafe942b02144d1abe9851, type: 3}
+    clothingSprite: {fileID: 21300000, guid: b22a8452dc0abb44a95f642ec4f1c112, type: 3}
     orientation: 0
   - ID: 0
-    clothingSprite: {fileID: 21300000, guid: 85aff5307efbd0f43a9040055fdd1dc1, type: 3}
+    clothingSprite: {fileID: 21300000, guid: b22a8452dc0abb44a95f642ec4f1c112, type: 3}
     orientation: 1
   - ID: 0
-    clothingSprite: {fileID: 21300000, guid: 4ee46972907af1e46b111137e9e3a968, type: 3}
+    clothingSprite: {fileID: 21300000, guid: 852656bdf0751bb4a8ba307c27ebaed2, type: 3}
     orientation: 2
   - ID: 0
-    clothingSprite: {fileID: 21300000, guid: b0350917fd237404abb758a8d6deb4b8, type: 3}
+    clothingSprite: {fileID: 21300000, guid: 852656bdf0751bb4a8ba307c27ebaed2, type: 3}
     orientation: 3
   clothesHead: {fileID: 0}
-  clothesTorso: {fileID: 0}
-  clothesLegs: {fileID: 0}
-  clothesFeet: {fileID: 0}
+  clothesTorso: {fileID: 11400000, guid: 390387fbcaccbb14c978a72b258818a7, type: 2}
+  clothesLegs: {fileID: 11400000, guid: d05a4ccb254c43849bde181d75362885, type: 2}
+  clothesFeet: {fileID: 11400000, guid: 8eba8cc656e6c7946a47b8879e8a44a7, type: 2}
   moveSpeed: 1
 --- !u!50 &4892952856754104505
 Rigidbody2D:
