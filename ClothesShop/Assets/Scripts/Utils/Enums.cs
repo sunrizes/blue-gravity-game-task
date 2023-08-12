@@ -5,3 +5,11 @@ public enum ClothingType
     Legs,
     Feet
 }
+
+public enum Orientation
+{
+    North,
+    South,
+    West,
+    East
+}
