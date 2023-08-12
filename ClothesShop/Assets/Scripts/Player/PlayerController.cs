@@ -52,7 +52,9 @@ public class PlayerController : MonoBehaviour
     {
         playerControls = new PlayerControls();
 
-        playerControls.Player.OpenInventory.canceled += ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
+        playerControls.Player.OpenPauseMenu.started += ctx => MainGameUIManager.Instance.ShowPauseMenu();
+
+        playerControls.Player.OpenInventory.started += ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
 
         playerControls.Player.Movement.performed += ctx => playerMovement = ctx.ReadValue<Vector2>();
 
@@ -63,7 +65,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        playerControls.Player.OpenInventory.canceled -= ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
+        playerControls.Player.OpenPauseMenu.started -= ctx => MainGameUIManager.Instance.ShowPauseMenu();
+
+        playerControls.Player.OpenInventory.started -= ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
 
         playerControls.Player.Movement.performed -= ctx => playerMovement = ctx.ReadValue<Vector2>();
 

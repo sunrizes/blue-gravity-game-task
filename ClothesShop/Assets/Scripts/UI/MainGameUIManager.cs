@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [DefaultExecutionOrder(-4)]
@@ -38,6 +39,9 @@ public class MainGameUIManager : MonoBehaviour
     public GameObject purchaseBasketFull;
     public GameObject purchaseNoItems;
 
+    [Space(10)]
+    public GameObject pauseMenu;
+
     private void Start()
     {
         if (Instance == null) Instance = this;
@@ -73,5 +77,29 @@ public class MainGameUIManager : MonoBehaviour
 
         if (PlayerController.Instance.clothesHead is not null)
             playerFeetIcon.sprite = PlayerController.Instance.clothesFeet.icon;
+    }
+
+    public void ShowPauseMenu()
+    {
+        if (Time.timeScale != 0.0f)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else if (Time.timeScale == 0.0f)
+        {
+            Time.timeScale = 1.0f;
+        }
+
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
+
+    public void PauseMainMenu()
+    {
+        SceneManager.LoadScene("01_MainMenu");
+    }
+
+    public void PauseQuit()
+    {
+        Application.Quit();
     }
 }
