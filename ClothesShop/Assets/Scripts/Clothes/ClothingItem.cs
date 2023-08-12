@@ -9,8 +9,5 @@ public class ClothingItem : ScriptableObject
     public ClothingType clothingType;
     public int price;
     public string description;
-    public Sprite spriteNorth;
-    public Sprite spriteSouth;
-    public Sprite spriteWest;
-    public Sprite spriteEast;
+    public List<ClothingSprite> sprites;
 }

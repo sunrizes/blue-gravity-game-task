@@ -16,7 +16,16 @@ MonoBehaviour:
   clothingType: 1
   price: 20
   description: A plain single color T-Shirt.
-  spriteNorth: {fileID: 21300000, guid: c1e163e210fdfcb408ea4bf9c98fd278, type: 3}
-  spriteSouth: {fileID: 21300000, guid: c1e163e210fdfcb408ea4bf9c98fd278, type: 3}
-  spriteWest: {fileID: 21300000, guid: d245994fa2214a742b8f7e7bc792f313, type: 3}
-  spriteEast: {fileID: 21300000, guid: 6c932c5ceac44d242b8fd8f4dd0e1dbb, type: 3}
+  sprites:
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: c1e163e210fdfcb408ea4bf9c98fd278, type: 3}
+    orientation: 0
+  - ID: 1
+    clothingSprite: {fileID: 21300000, guid: c1e163e210fdfcb408ea4bf9c98fd278, type: 3}
+    orientation: 1
+  - ID: 2
+    clothingSprite: {fileID: 21300000, guid: d245994fa2214a742b8f7e7bc792f313, type: 3}
+    orientation: 2
+  - ID: 3
+    clothingSprite: {fileID: 21300000, guid: 6c932c5ceac44d242b8fd8f4dd0e1dbb, type: 3}
+    orientation: 3

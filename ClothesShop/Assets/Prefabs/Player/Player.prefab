@@ -302,10 +302,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8a6dfb21a4fa46b60f28f1532a07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Head: {fileID: 4152399612466630086}
-  Torso: {fileID: 7541344990273582390}
-  Legs: {fileID: 5453813992560775621}
-  Feet: {fileID: 8223692540593964960}
+  playerHead: {fileID: 4152399612466630086}
+  playerTorso: {fileID: 7541344990273582390}
+  playerLegs: {fileID: 5453813992560775621}
+  playerFeet: {fileID: 8223692540593964960}
+  playerHeadNo:
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: ed53ae2185ff81243bf741faf8b27f6d, type: 3}
+    orientation: 0
+  - ID: 1
+    clothingSprite: {fileID: 21300000, guid: 285562550b1a5d046b9b0e713e31d87a, type: 3}
+    orientation: 1
+  - ID: 2
+    clothingSprite: {fileID: 21300000, guid: af4b6083632141a498062959ed200487, type: 3}
+    orientation: 2
+  - ID: 3
+    clothingSprite: {fileID: 21300000, guid: 6ea886e2db646064ea999356993745fb, type: 3}
+    orientation: 3
+  playerTorsoNo:
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: c61b7688e5da26f499c4902b2a2f026c, type: 3}
+    orientation: 0
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: c61b7688e5da26f499c4902b2a2f026c, type: 3}
+    orientation: 1
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 1d55f470555b6f44ca2d0415393e7603, type: 3}
+    orientation: 2
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 915dd62aca1bafe438a78e3052d81d20, type: 3}
+    orientation: 3
+  playerLegsNo:
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 96ef5434695074d489dd093b5016a644, type: 3}
+    orientation: 0
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 96ef5434695074d489dd093b5016a644, type: 3}
+    orientation: 1
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 540ba9559292f034b9e9ad7fb604fef1, type: 3}
+    orientation: 2
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 540ba9559292f034b9e9ad7fb604fef1, type: 3}
+    orientation: 3
+  playerFeetNo:
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 9741b8037dfafe942b02144d1abe9851, type: 3}
+    orientation: 0
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 85aff5307efbd0f43a9040055fdd1dc1, type: 3}
+    orientation: 1
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: 4ee46972907af1e46b111137e9e3a968, type: 3}
+    orientation: 2
+  - ID: 0
+    clothingSprite: {fileID: 21300000, guid: b0350917fd237404abb758a8d6deb4b8, type: 3}
+    orientation: 3
+  clothesHead: {fileID: 0}
+  clothesTorso: {fileID: 0}
+  clothesLegs: {fileID: 0}
+  clothesFeet: {fileID: 0}
   moveSpeed: 1
 --- !u!50 &4892952856754104505
 Rigidbody2D:
