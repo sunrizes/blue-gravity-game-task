@@ -4,8 +4,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[DefaultExecutionOrder(-5)]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     private PlayerControls playerControls;
 
     private Rigidbody2D rb;
@@ -39,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (Instance == null) Instance = this;
+
         rb = GetComponent<Rigidbody2D>();
         orientation = Orientation.South;
     }
@@ -46,6 +51,8 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         playerControls = new PlayerControls();
+
+        playerControls.Player.OpenInventory.canceled += ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
 
         playerControls.Player.Movement.performed += ctx => playerMovement = ctx.ReadValue<Vector2>();
 
@@ -56,6 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        playerControls.Player.OpenInventory.canceled -= ctx => MainGameUIManager.Instance.inventoryPanel.SetActive(!MainGameUIManager.Instance.inventoryPanel.activeSelf);
+
         playerControls.Player.Movement.performed -= ctx => playerMovement = ctx.ReadValue<Vector2>();
 
         playerControls.Player.Movement.canceled -= ctx => playerMovement = Vector2.zero;

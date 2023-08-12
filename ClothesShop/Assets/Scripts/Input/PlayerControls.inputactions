@@ -6,15 +6,6 @@
             "id": "3c5d748b-bc1b-4e24-b77c-ce85172cf5d4",
             "actions": [
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "f221d4b8-b03a-4560-8f19-6c3b163293c7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "bd772e32-bac2-4faa-98c9-f635d6a0df13",
@@ -22,20 +13,18 @@
                     "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "1fd38f8b-bc78-417a-a1f6-baa2ad88f69b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "7c516278-a8fd-4943-a582-41d0f5a01c60",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "527e4298-f6e3-4559-951e-60531f51d03d",
@@ -145,6 +134,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "be528afd-4d94-480e-9a5d-8f08dea6eac8",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -30,4 +30,4 @@ MonoBehaviour:
   - ID: 3
     clothingSprite: {fileID: 21300000, guid: 1a956c54bf7d8884da625ec8ca7cd96d, type: 3}
     orientation: 3
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dac94cd3611f66945bc1cb177ce6959e, type: 3}

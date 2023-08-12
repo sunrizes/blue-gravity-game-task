@@ -28,15 +28,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""id"": ""3c5d748b-bc1b-4e24-b77c-ce85172cf5d4"",
             ""actions"": [
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""f221d4b8-b03a-4560-8f19-6c3b163293c7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""bd772e32-bac2-4faa-98c9-f635d6a0df13"",
@@ -44,20 +35,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fd38f8b-bc78-417a-a1f6-baa2ad88f69b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""7c516278-a8fd-4943-a582-41d0f5a01c60"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""WASD"",
                     ""id"": ""527e4298-f6e3-4559-951e-60531f51d03d"",
@@ -167,6 +156,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be528afd-4d94-480e-9a5d-8f08dea6eac8"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -175,8 +175,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_OpenInventory = m_Player.FindAction("OpenInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -236,14 +236,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_OpenInventory;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @OpenInventory => m_Wrapper.m_Player_OpenInventory;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -253,29 +253,29 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @OpenInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenInventory;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @OpenInventory.started += instance.OnOpenInventory;
+                @OpenInventory.performed += instance.OnOpenInventory;
+                @OpenInventory.canceled += instance.OnOpenInventory;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnInteract(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
 }
